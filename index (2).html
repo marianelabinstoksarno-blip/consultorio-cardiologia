@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f6">
+  <meta name="description" content="Atención cardiológica. Conocé la trayectoria, servicios y estudios del consultorio.">
+  <title>Consultorio de Cardiología | Dr. Guido Ortiz</title>
+  <style>
+    :root {
+      --ink: #171717;
+      --muted: #666666;
+      --green: #c62828;
+      --green-dark: #a71919;
+      --mint: #f2eeee;
+      --paper: #ffffff;
+      --white: #fff;
+      --line: #e4e4e4;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .topbar { padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; font-weight:700; letter-spacing:-.03em; }
+    .brand-mark { display:grid; place-items:center; width:38px; height:38px; border-radius:12px; background:var(--green); color:white; }
+    .brand-mark svg { width:21px; height:21px; }
+    .nav-links { display:flex; gap:25px; align-items:center; }
+    .nav-links a { text-decoration:none; color:var(--muted); font-size:.9rem; }
+    .nav-links a:hover { color:var(--green); }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:13px 19px; border-radius:999px; background:var(--green); color:white; text-decoration:none; font-weight:650; font-size:.93rem; transition:background .2s, transform .2s; }
+    .button:hover { background:var(--green-dark); transform:translateY(-1px); }
+    .button.outline { background:transparent; color:var(--green); border:1px solid var(--green); }
+    .button.outline:hover { background:var(--mint); }
+    .hero { padding:88px 0 78px; display:grid; grid-template-columns:1.15fr .85fr; gap:64px; align-items:center; }
+    .eyebrow { color:var(--green); text-transform:uppercase; letter-spacing:.14em; font-size:.74rem; font-weight:750; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font-size:clamp(2.7rem, 6vw, 5.1rem); line-height:1.02; letter-spacing:-.065em; max-width:720px; margin:18px 0 24px; font-weight:680; }
+    .hero-copy { color:var(--muted); font-size:1.12rem; max-width:560px; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+    .hero-art { min-height:410px; border-radius:28px; background:var(--mint); position:relative; overflow:hidden; display:grid; place-items:center; }
+    .hero-art::before,.hero-art::after { content:""; position:absolute; border:1px solid rgba(198,40,40,.16); border-radius:50%; width:310px; height:310px; }
+    .hero-art::after { width:430px; height:430px; }
+    .heart-card { position:relative; z-index:1; width:170px; height:170px; display:grid; place-items:center; background:rgba(255,255,255,.78); border:1px solid rgba(255,255,255,.9); border-radius:42px; box-shadow:0 22px 60px rgba(0,0,0,.08); }
+    .heart-card svg { width:90px; height:90px; }
+    .art-note { position:absolute; z-index:2; bottom:25px; left:25px; background:white; padding:13px 17px; border-radius:14px; font-size:.82rem; color:var(--muted); box-shadow:0 8px 30px rgba(0,0,0,.06); }
+    .art-note strong { display:block; color:var(--ink); font-size:.95rem; }
+    section { padding:76px 0; }
+    .section-head { max-width:650px; margin-bottom:35px; }
+    h2 { font-size:clamp(2rem,4vw,3rem); line-height:1.1; letter-spacing:-.05em; margin:12px 0 14px; }
+    .lead { color:var(--muted); font-size:1.04rem; }
+    .about { background:#fff; }
+    .about-grid { display:grid; grid-template-columns:.72fr 1.28fr; gap:70px; align-items:start; }
+    .profile-placeholder { min-height:310px; border-radius:22px; background:linear-gradient(145deg,#f2eeee,#e8e8e8); display:grid; place-items:center; color:var(--green); text-align:center; padding:25px; }
+    .profile-placeholder svg { width:72px; height:72px; opacity:.7; }
+    .profile-placeholder span { display:block; margin-top:12px; font-size:.83rem; color:var(--muted); }
+    .facts { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:28px; }
+    .fact { border-top:1px solid var(--line); padding-top:14px; }
+    .fact strong { display:block; font-size:.94rem; }
+    .fact span { color:var(--muted); font-size:.88rem; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .card { padding:25px; border:1px solid var(--line); border-radius:19px; background:white; min-height:190px; }
+    .card-icon { width:43px; height:43px; display:grid; place-items:center; border-radius:13px; background:var(--mint); color:var(--green); margin-bottom:20px; }
+    .card-icon svg { width:22px; height:22px; }
+    .card h3 { font-size:1.08rem; margin-bottom:8px; letter-spacing:-.02em; }
+    .card p { color:var(--muted); font-size:.91rem; margin-bottom:0; }
+    .studies { background:var(--mint); }
+    .study-list { display:grid; grid-template-columns:repeat(2,1fr); gap:0 45px; }
+    .study { padding:20px 0; border-bottom:1px solid rgba(40,100,91,.2); display:flex; gap:15px; }
+    .study-num { color:var(--green); font-size:.78rem; font-weight:750; padding-top:4px; }
+    .study strong { display:block; margin-bottom:4px; }
+    .study span { display:block; color:var(--muted); font-size:.9rem; }
+    .office-grid { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
+    .office-visual { min-height:330px; border-radius:24px; background:linear-gradient(135deg,#eeeeee,#f7f7f7); display:grid; place-items:center; color:var(--green); text-align:center; padding:30px; }
+    .office-visual svg { width:64px; height:64px; }
+    .office-details { display:grid; gap:18px; margin:25px 0; }
+    .detail { display:flex; gap:13px; align-items:flex-start; }
+    .detail svg { flex:0 0 21px; width:21px; color:var(--green); margin-top:3px; }
+    .detail strong { display:block; }
+    .detail span { color:var(--muted); font-size:.92rem; }
+    .contact { background:#171717; color:white; }
+    .contact .eyebrow { color:#f2a3a3; }
+    .contact .lead { color:#dddddd; }
+    .contact-grid { display:grid; grid-template-columns:1fr .9fr; gap:60px; align-items:center; }
+    .contact-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .contact .button { background:#fff; color:#171717; }
+    .contact .button.outline { border-color:rgba(255,255,255,.55); background:transparent; color:white; }
+    .contact-note { border:1px solid rgba(255,255,255,.2); border-radius:20px; padding:25px; color:#dddddd; font-size:.92rem; }
+    @media (max-width:800px) {
+      .nav-links { display:none; }
+      .hero { grid-template-columns:1fr; gap:38px; padding:62px 0 55px; }
+      .hero-art { min-height:300px; }
+      .about-grid,.office-grid,.contact-grid { grid-template-columns:1fr; gap:32px; }
+      .profile-placeholder { min-height:230px; }
+      .cards { grid-template-columns:repeat(2,1fr); }
+      section { padding:58px 0; }
+    }
+    @media (max-width:540px) {
+      .wrap { width:min(100% - 34px,var(--max)); }
+      .topbar { padding:15px 0; }
+      .brand { font-size:.9rem; }
+      .nav > .button { padding:10px 13px; font-size:.8rem; }
+      .hero { padding-top:48px; }
+      .hero-art { min-height:260px; }
+      .cards,.study-list,.facts { grid-template-columns:1fr; }
+      .card { min-height:0; }
+      .hero-actions .button,.contact-actions .button { width:100%; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none !important; } }
+  </style>
+</head>
+<body>
+  <!-- REEMPLAZAR: nombre, matrícula, datos profesionales, servicios, dirección y teléfonos. -->
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l2.2-5 4.1 10 2.1-5H21"/></svg></span>
+        <span>Dr. Guido Ortiz <span style="font-weight:450;color:#666666">· Cardiólogo especialista en Electrofisiología</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#trayectoria">Trayectoria</a><a href="#servicios">Servicios</a><a href="#estudios">Estudios</a>
+      </nav>
+      <a class="button" href="#contacto">Contacto</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap hero" id="inicio">
+      <div>
+        <div class="eyebrow">Atención cardiológica</div>
+        <h1>Healthy Hearts at Home.</h1>
+        <p class="hero-copy">Nuestra misión es garantizar que los pacientes tengan una forma de acceso simple y conveniente a la atención médica de calidad. Nos adaptamos a las necesidades individuales de cada paciente, para que todos puedan tener un corazón saludable en su hogar.</p>
+        <div class="hero-actions">
+          <a class="button" href="https://wa.me/5491112345678" target="_blank" rel="noopener">Solicitar un turno <span aria-hidden="true">↗</span></a>
+          <a class="button outline" href="#servicios">Conocer los servicios</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Ilustración abstracta de un electrocardiograma">
+        <div class="heart-card"><svg viewBox="0 0 100 100" fill="none" stroke="#c62828" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 52h20l9-21 16 43 12-30 7 8h16"/><path d="M50 16c-10-12-31-7-34 10-4 23 34 48 34 48s38-25 34-48c-3-17-24-22-34-10Z" opacity=".22"/></svg></div>
+      </div>
+    </div>
+
+    <section class="about" id="trayectoria">
+      <div class="wrap about-grid">
+        <div class="profile-placeholder">
+          <!-- Reemplazar por una foto profesional optimizada, por ejemplo: <img src="assets/medico.jpg" alt="Dr. Guido Ortiz" /> -->
+          <div><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="32" cy="21" r="12"/><path d="M9 57c2-13 10-20 23-20s21 7 23 20"/></svg><span>ESPACIO PARA FOTO PROFESIONAL</span></div>
+        </div>
+        <div>
+          <div class="eyebrow">Conocé al profesional</div>
+          <h2>Cardiólogo especialista en electrofisiología.</h2>
+          <p class="lead">El <strong>Dr. Guido Ortiz</strong> se graduó como médico en el Instituto Universitario de Ciencias de la Salud Fundación Héctor A. Barceló y realizó su residencia de Cardiología en el Hospital Militar Central Cirujano Mayor Dr. Cosme Argerich, institución donde posteriormente obtuvo el título de Médico Cardiólogo.</p>
+          <p style="color:var(--muted)">En 2024 completó su especialización en Electrofisiología Cardíaca en la Universidad Nacional de La Plata, profundizando su formación en arritmias, ablaciones cardíacas, implante y control de marcapasos y dispositivos cardíacos. Además, mantiene una formación continua mediante cursos de actualización en estimulación cardíaca, cardiodesfibriladores, ecocardiografía crítica y terapias avanzadas en electrofisiología cardíaca.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Atención integral</div>
+          <h2>Servicios del consultorio</h2>
+          <p class="lead">Acompañamiento cardiológico adaptado a las necesidades y antecedentes de cada persona.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">
+              <!-- Ícono: computadora -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="12" rx="2"/>
+                <path d="M12 16v4M8 20h8"/>
+              </svg>
+            </div>
+            <h3>Consulta virtual</h3>
+            <p>Realizamos consultas virtuales por WhatsApp Web, Discord, Zoom o Google Meet. Los estudios pueden enviarse por esos medios o por mail a guidoportiz@gmail.com.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">
+              <!-- Ícono: casita -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 11l9-7 9 7"/>
+                <path d="M5 9.5V20h14V9.5"/>
+                <path d="M10 20v-5h4v5"/>
+              </svg>
+            </div>
+            <h3>Consulta a domicilio</h3>
+            <p>Incluye toma de presión, saturómetro y, si el paciente lo necesita, control de marcapasos y ECG informado.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">
+              <!-- Ícono: estetoscopio -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 3h2M15 3h2"/>
+                <path d="M6 3v5a5 5 0 0 0 10 0V3"/>
+                <path d="M11 13v3a4 4 0 0 0 8 0v-2"/>
+                <circle cx="19" cy="12" r="2"/>
+              </svg>
+            </div>
+            <h3>Consulta en consultorio</h3>
+            <p>Con cita previamente pactada por mail o WhatsApp.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="studies" id="estudios">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Diagnóstico</div>
+          <h2>Consultas y prácticas cardiológicas</h2>
+          <p class="lead">Conocé las consultas y evaluaciones cardiológicas disponibles, junto con los estudios realizados en el consultorio y aquellos que requieren derivación.</p>
+        </div>
+        <div class="study-list">
+          <div class="study"><div class="study-num">01</div><div><strong>Consulta</strong><span>Cardiología general y especializada en electrofisiología.</span></div></div>
+          <div class="study"><div class="study-num">02</div><div><strong>Electrocardiograma (ECG)</strong><span>ECG informado.</span></div></div>
+          <div class="study"><div class="study-num">03</div><div><strong>Apto físico</strong><span>Adultos y pediátricos.</span></div></div>
+          <div class="study"><div class="study-num">04</div><div><strong>Riesgo prequirúrgico</strong><span>Incluye el ECG informado. No incluye análisis de laboratorio.</span></div></div>
+          <div class="study"><div class="study-num">05</div><div><strong>Control de marcapasos</strong><span>Es necesario conocer la marca de su marcapasos.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="wrap contact-grid">
+        <div>
+          <div class="eyebrow">Contacto y turnos</div>
+          <h2>Estamos para acompañarte.</h2>
+          <p class="lead">Para solicitar un turno o realizar consultas sobre la atención, comunicate por los siguientes medios.</p>
+          <div class="contact-actions">
+            <a class="button" href="https://wa.me/5491112345678" target="_blank" rel="noopener">WhatsApp ↗</a>
+          </div>
+        </div>
+        <div class="contact-note">
+          <strong style="color:white">Dr. Guido Ortiz</strong><br>
+          Cardiólogo especialista en electrofisiología<br><br>
+          WhatsApp: [+54 9 11 XXXX-XXXX]<br>
+          Mail: guidoportiz@gmail.com
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
